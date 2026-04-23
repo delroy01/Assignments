@@ -1,0 +1,83 @@
+[
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "start_game",
+        "kind": 2,
+        "importPath": "number-guessing",
+        "description": "number-guessing",
+        "peekOfCode": "def start_game():\n    secret_number = random.randint(1, 100)\n    attempts = 0\n    guessed_correctly = False\n    print(\"--- Simple Number Guessing Game ---\")\n    print(\"I'm thinking of a number between 1 and 100.\")\n    # Loop until the number is guessed\n    while not guessed_correctly:\n        try:\n            user_guess = int(input(\"Enter your guess: \"))",
+        "detail": "number-guessing",
+        "documentation": {}
+    },
+    {
+        "label": "load_tasks",
+        "kind": 2,
+        "importPath": "to-do-list",
+        "description": "to-do-list",
+        "peekOfCode": "def load_tasks():\n    \"\"\"Loads tasks from a file when the program starts.\"\"\"\n    tasks = []\n    if os.path.exists(FILE_NAME):\n        with open(FILE_NAME, \"r\") as file:\n            for line in file:\n                parts = line.strip().split(\" | \")\n                if len(parts) == 2:\n                    tasks.append({\n                        \"name\": parts[0],",
+        "detail": "to-do-list",
+        "documentation": {}
+    },
+    {
+        "label": "save_tasks",
+        "kind": 2,
+        "importPath": "to-do-list",
+        "description": "to-do-list",
+        "peekOfCode": "def save_tasks(tasks):\n    \"\"\"Saves the current task list to a file.\"\"\"\n    with open(FILE_NAME, \"w\") as file:\n        for task in tasks:\n            status = \"Done\" if task[\"completed\"] else \"Pending\"\n            file.write(f\"{task['name']} | {status}\\n\")\ndef display_tasks(tasks):\n    \"\"\"Displays all tasks to the user.\"\"\"\n    if not tasks:\n        print(\"\\n--- Your list is empty ---\")",
+        "detail": "to-do-list",
+        "documentation": {}
+    },
+    {
+        "label": "display_tasks",
+        "kind": 2,
+        "importPath": "to-do-list",
+        "description": "to-do-list",
+        "peekOfCode": "def display_tasks(tasks):\n    \"\"\"Displays all tasks to the user.\"\"\"\n    if not tasks:\n        print(\"\\n--- Your list is empty ---\")\n    else:\n        print(\"\\n--- Current Tasks ---\")\n        for i, task in enumerate(tasks, 1):\n            status = \"[X]\" if task[\"completed\"] else \"[ ]\"\n            print(f\"{i}. {status} {task['name']}\")\ndef get_valid_index(tasks, prompt):",
+        "detail": "to-do-list",
+        "documentation": {}
+    },
+    {
+        "label": "get_valid_index",
+        "kind": 2,
+        "importPath": "to-do-list",
+        "description": "to-do-list",
+        "peekOfCode": "def get_valid_index(tasks, prompt):\n    \"\"\"Safely get a valid task index from the user.\"\"\"\n    try:\n        index = int(input(prompt)) - 1\n        if 0 <= index < len(tasks):\n            return index\n        else:\n            print(\"Invalid task number.\")\n            return None\n    except ValueError:",
+        "detail": "to-do-list",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "to-do-list",
+        "description": "to-do-list",
+        "peekOfCode": "def main():\n    tasks = load_tasks()\n    while True:\n        print(\"\\n--- TO-DO LIST MENU ---\")\n        print(\"1. Add Task\")\n        print(\"2. View Tasks\")\n        print(\"3. Delete Task\")\n        print(\"4. Mark Task Completed\")\n        print(\"5. Save and Exit\")\n        choice = input(\"\\nChoose an option (1-5): \").strip()",
+        "detail": "to-do-list",
+        "documentation": {}
+    },
+    {
+        "label": "FILE_NAME",
+        "kind": 5,
+        "importPath": "to-do-list",
+        "description": "to-do-list",
+        "peekOfCode": "FILE_NAME = \"tasks.txt\"\ndef load_tasks():\n    \"\"\"Loads tasks from a file when the program starts.\"\"\"\n    tasks = []\n    if os.path.exists(FILE_NAME):\n        with open(FILE_NAME, \"r\") as file:\n            for line in file:\n                parts = line.strip().split(\" | \")\n                if len(parts) == 2:\n                    tasks.append({",
+        "detail": "to-do-list",
+        "documentation": {}
+    }
+]
