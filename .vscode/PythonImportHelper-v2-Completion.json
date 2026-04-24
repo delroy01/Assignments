@@ -27,6 +27,78 @@
         "documentation": {}
     },
     {
+        "label": "load_data",
+        "kind": 2,
+        "importPath": "Score-tracker",
+        "description": "Score-tracker",
+        "peekOfCode": "def load_data():\n    students = {}\n    if os.path.exists(FILE_NAME):\n        with open(FILE_NAME, \"r\") as file:\n            for line in file:\n                name, score = line.strip().split(\",\")\n                students[name] = float(score)\n    return students\n# Save records to file\ndef save_data(students):",
+        "detail": "Score-tracker",
+        "documentation": {}
+    },
+    {
+        "label": "save_data",
+        "kind": 2,
+        "importPath": "Score-tracker",
+        "description": "Score-tracker",
+        "peekOfCode": "def save_data(students):\n    with open(FILE_NAME, \"w\") as file:\n        for name, score in students.items():\n            file.write(f\"{name},{score}\\n\")\n# Add student\ndef add_student(students):\n    name = input(\"Enter student name: \")\n    if name in students:\n        print(\"Student already exists!\")\n        return",
+        "detail": "Score-tracker",
+        "documentation": {}
+    },
+    {
+        "label": "add_student",
+        "kind": 2,
+        "importPath": "Score-tracker",
+        "description": "Score-tracker",
+        "peekOfCode": "def add_student(students):\n    name = input(\"Enter student name: \")\n    if name in students:\n        print(\"Student already exists!\")\n        return\n    score = float(input(\"Enter score: \"))\n    students[name] = score\n    print(\"Student added successfully!\")\n# View all students\ndef view_students(students):",
+        "detail": "Score-tracker",
+        "documentation": {}
+    },
+    {
+        "label": "view_students",
+        "kind": 2,
+        "importPath": "Score-tracker",
+        "description": "Score-tracker",
+        "peekOfCode": "def view_students(students):\n    if not students:\n        print(\"No records found.\")\n        return\n    print(\"\\n--- Student Scores ---\")\n    for name, score in students.items():\n        print(f\"{name}: {score}\")\n# Update student score\ndef update_student(students):\n    name = input(\"Enter student name to update: \")",
+        "detail": "Score-tracker",
+        "documentation": {}
+    },
+    {
+        "label": "update_student",
+        "kind": 2,
+        "importPath": "Score-tracker",
+        "description": "Score-tracker",
+        "peekOfCode": "def update_student(students):\n    name = input(\"Enter student name to update: \")\n    if name in students:\n        score = float(input(\"Enter new score: \"))\n        students[name] = score\n        print(\"Score updated!\")\n    else:\n        print(\"Student not found.\")\n# Delete student\ndef delete_student(students):",
+        "detail": "Score-tracker",
+        "documentation": {}
+    },
+    {
+        "label": "delete_student",
+        "kind": 2,
+        "importPath": "Score-tracker",
+        "description": "Score-tracker",
+        "peekOfCode": "def delete_student(students):\n    name = input(\"Enter student name to delete: \")\n    if name in students:\n        del students[name]\n        print(\"Student deleted!\")\n    else:\n        print(\"Student not found.\")\n# Calculate statistics\ndef calculate_stats(students):\n    if not students:",
+        "detail": "Score-tracker",
+        "documentation": {}
+    },
+    {
+        "label": "calculate_stats",
+        "kind": 2,
+        "importPath": "Score-tracker",
+        "description": "Score-tracker",
+        "peekOfCode": "def calculate_stats(students):\n    if not students:\n        print(\"No data available.\")\n        return\n    scores = list(students.values())\n    avg = sum(scores) / len(scores)\n    high = max(scores)\n    low = min(scores)\n    print(\"\\n--- Statistics ---\")\n    print(f\"Average Score: {avg:.2f}\")",
+        "detail": "Score-tracker",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "Score-tracker",
+        "description": "Score-tracker",
+        "peekOfCode": "def main():\n    students = load_data()\n    while True:\n        print(\"\\n===== Student Score Tracker =====\")\n        print(\"1. Add Student\")\n        print(\"2. View Students\")\n        print(\"3. Update Score\")\n        print(\"4. Delete Student\")\n        print(\"5. Calculate Statistics\")\n        print(\"6. Save & Exit\")",
+        "detail": "Score-tracker",
+        "documentation": {}
+    },
+    {
         "label": "load_tasks",
         "kind": 2,
         "importPath": "to-do-list",
